@@ -1,5 +1,4 @@
 package reto3.api.web;
-
 import reto3.api.model.barcos;
 import reto3.api.service.barcoService;
 import org.springframework.beans.factory.annotation.Autowired;

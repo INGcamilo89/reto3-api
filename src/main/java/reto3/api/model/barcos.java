@@ -1,5 +1,4 @@
 package reto3.api.model;
-
 import javax.persistence.*;
 import java.util.Date;
 
