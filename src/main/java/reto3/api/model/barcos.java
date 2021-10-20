@@ -2,12 +2,15 @@ package reto3.api.model;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
-@Table(name="boats")
+@Table(name="Boat")
 public class barcos {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idBoats;
+    private Integer idBoat;
+
 
     @Column(length = 45)
     private String brand;
@@ -25,21 +28,12 @@ public class barcos {
     @Column(length = 250)
     private String description;
 
-
-    public Integer getIdBoats() {
-        return idBoats;
+    public Integer getIdBoat() {
+        return idBoat;
     }
 
-    public void setIdBoats(Integer idBoats) {
-        this.idBoats = idBoats;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
+    public void setIdBoat(Integer idBoat) {
+        this.idBoat = idBoat;
     }
 
     public String getBrand() {
@@ -58,19 +52,27 @@ public class barcos {
         this.year = year;
     }
 
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
     public String getCategory() {
         return category;
     }
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

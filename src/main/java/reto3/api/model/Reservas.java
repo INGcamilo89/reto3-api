@@ -3,8 +3,9 @@ package reto3.api.model;
 import javax.persistence.*;
 import java.util.Date;
 
+
 @Entity
-@Table(name="reservation")
+@Table(name="Reservation")
 public class Reservas {
 
     @Id

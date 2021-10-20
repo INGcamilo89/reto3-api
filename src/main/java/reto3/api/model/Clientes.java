@@ -2,7 +2,7 @@ package reto3.api.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name="client")
+@Table(name="Client")
 public class Clientes {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
