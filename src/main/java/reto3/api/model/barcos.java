@@ -3,61 +3,74 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="Barcos")
+@Table(name="boats")
 public class barcos {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idCategoria;
+    private Integer idBoats;
 
     @Column(length = 45)
-    private String nombre;
-
-    @Column(length = 45)
-    private String marca;
-
-    @Column(length = 250)
-    private String descripcion;
+    private String brand;
 
     @Column
-    private Date fechaLanzamiento;
+    private Date year;
 
-    public Integer getIdCategoria() {
-        return idCategoria;
+    @Column(length = 100)
+    private String category;
+
+    @Column(length = 45)
+    private String name;
+
+
+    @Column(length = 250)
+    private String description;
+
+
+    public Integer getIdBoats() {
+        return idBoats;
     }
 
-    public void setIdCategoria(Integer idCategoria) {
-        this.idCategoria = idCategoria;
+    public void setIdBoats(Integer idBoats) {
+        this.idBoats = idBoats;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getMarca() {
-        return marca;
+    public String getBrand() {
+        return brand;
     }
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public Date getYear() {
+        return year;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setYear(Date year) {
+        this.year = year;
     }
 
-    public Date getFechaLanzamiento() {
-        return fechaLanzamiento;
+    public String getDescription() {
+        return description;
     }
 
-    public void setFechaLanzamiento(Date fechaLanzamiento) {
-        this.fechaLanzamiento = fechaLanzamiento;
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

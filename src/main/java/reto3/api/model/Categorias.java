@@ -8,10 +8,10 @@ public class Categorias {
     private Integer idCategory;
 
     @Column(length = 45)
-    private String nombre;
+    private String name;
 
     @Column(length = 250)
-    private String descripcion;
+    private String description;
 
     public Integer getIdCategory() {
         return idCategory;
@@ -21,19 +21,19 @@ public class Categorias {
         this.idCategory = idCategory;
     }
 
-    public String getNombre() {
-        return nombre;
+    public String getName() {
+        return name;
     }
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getDescripcion() {
-        return descripcion;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescripcion(String descripcion) {
-        this.descripcion = descripcion;
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
