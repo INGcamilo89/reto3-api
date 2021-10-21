@@ -1,10 +1,11 @@
 package reto3.api.model;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="score")
-public class Calificacion {
+public class Calificacion  implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer idScore;
@@ -51,4 +52,5 @@ public class Calificacion {
     public void setReserv(int reserv) {
         this.reserv = reserv;
     }
+
 }

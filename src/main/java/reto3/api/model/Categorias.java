@@ -2,19 +2,11 @@ package reto3.api.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 @Entity
-@Table(name="Category")
-public class Categorias  {
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+@Table(name="category")
+public class Categorias implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,20 +18,18 @@ public class Categorias  {
     @Column(length = 250)
     private String description;
 
-
-    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "category")
-    @JsonIgnoreProperties("")
+    @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "category")
+    @JsonIgnoreProperties("category")
     private List<barcos> boats;
 
 
-    public List<barcos> getBoats() {
-        return boats;
+    public Integer getId() {
+        return id;
     }
 
-    public void setBoats(List<barcos> boats) {
-        this.boats = boats;
+    public void setId(Integer id) {
+        this.id = id;
     }
-
 
 
     public String getName() {
@@ -57,5 +47,6 @@ public class Categorias  {
     public void setDescription(String description) {
         this.description = description;
     }
+
 
 }

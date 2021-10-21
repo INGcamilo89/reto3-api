@@ -1,11 +1,16 @@
 package reto3.api.model;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
-@Table(name="Boat")
-public class barcos {
+@Table(name="boat")
+public class barcos implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +23,6 @@ public class barcos {
     @Column
     private Date year;
 
-    @Column(length = 100)
-    private String category;
 
     @Column(length = 45)
     private String name;
@@ -27,6 +30,19 @@ public class barcos {
 
     @Column(length = 250)
     private String description;
+
+    @ManyToOne
+    @JoinColumn(name ="categoryId")
+    @JsonIgnoreProperties("boats")
+    private Categorias category;
+
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "boat")
+    @JsonIgnoreProperties({"boat", "client"})
+    private List<Reservas> reservations;
+
+    @OneToMany(cascade = {CascadeType.PERSIST},mappedBy = "boat")
+    @JsonIgnoreProperties({"boat", "client"})
+    private List<Reservas> reservation;
 
     public Integer getIdBoat() {
         return idBoat;
@@ -52,14 +68,6 @@ public class barcos {
         this.year = year;
     }
 
-    public String getCategory() {
-        return category;
-    }
-
-    public void setCategory(String category) {
-        this.category = category;
-    }
-
     public String getName() {
         return name;
     }
@@ -74,5 +82,22 @@ public class barcos {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Categorias getCategory() {
+        return category;
+    }
+
+    public void setCategory(Categorias category) {
+        this.category = category;
+    }
+
+
+    public List<Reservas> getReservations() {
+        return reservations;
+    }
+
+    public void setReservations(List<Reservas> reservations) {
+        this.reservations = reservations;
     }
 }

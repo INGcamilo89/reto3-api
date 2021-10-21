@@ -1,12 +1,15 @@
 package reto3.api.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Date;
 
 
 @Entity
-@Table(name="Reservation")
-public class Reservas {
+@Table(name="reservation")
+public class Reservas implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,6 +24,17 @@ public class Reservas {
 
     @Column()
     private String status="created";
+
+    @ManyToOne
+    @JoinColumn(name = "id")
+    @JsonIgnoreProperties("reservations")
+    private barcos boat;
+
+    @ManyToOne
+    @JoinColumn(name = "idClient")
+    @JsonIgnoreProperties({"reservations","message"})
+    private Clientes client;
+    private String score;
 
     public Integer getIdReservation() {
         return idReservation;
@@ -52,5 +66,29 @@ public class Reservas {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public barcos getBoat() {
+        return boat;
+    }
+
+    public void setBoat(barcos boat) {
+        this.boat = boat;
+    }
+
+    public Clientes getClient() {
+        return client;
+    }
+
+    public void setClient(Clientes client) {
+        this.client = client;
+    }
+
+    public String getScore() {
+        return score;
+    }
+
+    public void setScore(String score) {
+        this.score = score;
     }
 }
